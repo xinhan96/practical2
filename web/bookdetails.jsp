@@ -7,9 +7,9 @@
 --%>
 <html>
 <head><title>Duke's Bookstore</title></head>
-<%@ page import="demo.*" %>
+<%@ page import="model.*" %>
 <%
-  BookDetails book = (BookDetails)request.getAttribute("book");
+  BooksEntity book = (BooksEntity)request.getAttribute("book");
 %>
 <body bgcolor="#ffffff">
 <center>
@@ -19,10 +19,12 @@
   <br> &nbsp;
   <hr>
 </center>
-<h2><%= book.getTitle() %></h2>&nbsp; by<em> <%= book.getFirstName() + " " + book.getSurname() %> </em> (<%= book.getYear() %>)<br> <br>
+
+<h2><%= book.getTitle() %></h2>&nbsp; by<em> <%= book.getFirstName() + " " + book.getSurname() %> </em> (<%= book.getCalendarYear() %>)<br> <br>
 <h4>Here's what the critcs say: </h4>
-<blockquote>What a cool book.</blockquote>
+<blockquote><%= book.getDescription() %></blockquote>
 <h4>Our Price: <%= book.getPrice() %></h4>
-<p><strong><a href="/bookcatalog?bookId=<%= book.getBookId() %>">Add to Cart</a> <a href="/bookcatalog">Continue Shopping</a></strong></p>
+
+<p><strong><a href="/bookcatalog?bookId=<%= book.getId() %>">Add to Cart</a> <a href="/bookcatalog">Continue Shopping</a></strong></p>
 </body>
 </html>

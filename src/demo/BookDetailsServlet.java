@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import model.*;
 
 /**
  * Created by chitboon on 10/23/15.
@@ -14,14 +15,13 @@ import java.io.PrintWriter;
 @WebServlet(name = "BookDetailsServlet", urlPatterns = "/bookdetails")
 public class BookDetailsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             String bookId = request.getParameter("bookId");
             if (bookId != null) {
-                BookDBAO db = new BookDBAO();
-                BookDetails bd = db.getBookDetails(bookId);
+                BookDAO db = new BookDAO();
+                BooksEntity bd = db.getBookDetails(bookId);
                 // store bookdetails object in request scope with attribut name "book"
                 // bookdetails.jsp will retrieve this stored object later to display the content
                 request.setAttribute("book", bd);
