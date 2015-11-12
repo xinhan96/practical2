@@ -19,8 +19,8 @@ public class BookCatalogServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            BookDAO db = new BookDAO();
-            List<BooksEntity> list = db.getAllBook();
+            BookDBAO db = new BookDBAO();
+            List<BookDetails> list = db.getAllBook();
             request.setAttribute("books", list);
             getServletContext().getRequestDispatcher("/bookcatalog.jsp").forward(request, response);
         } catch (Exception e) {

@@ -20,7 +20,7 @@
   <hr>
 </center>
 <br>
-<h3>Please Choose from our selection</h3>
+<h3>Please Choose from our selection.</h3>
 <br>
 <center>
   <table summary="layout">
